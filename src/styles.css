@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+button {
+  margin-top: 2rem;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700
+}

@@ -1,50 +1,26 @@
 import {Component} from "@angular/core";
+import {DataService} from "./data.service";
 
 @Component({
   selector: 'app-root',
-  template: `
-    <h1>Hello World!</h1>
-    <ul *ngIf="planets.length != 0; then yesPlanets else noPlanets">
-      <!--<li *ngFor="let planet of planets">{{planet.name}} is a {{planet.size}} and it has {{planet.color}} colors.</li>-->
-    </ul>
-    <ng-template #yesPlanets>
-      List of planets:
-      <li *ngFor="let planet of planets">{{planet.name}} is a {{planet.size}} planet and it has {{planet.color}}
-        colors.
-      </li>
-    </ng-template>
-    <ng-template #noPlanets>Sorry no planets today...</ng-template>
-  `,
+  templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  planets = [
-    {
-      name: 'Earth',
-      size: 'small',
-      color: 'blue and green'
-    },
-    {
-      name: 'Mars',
-      size: 'small',
-      color: 'reddish and orange'
-    },
-    {
-      name: 'Neptune',
-      size: 'large',
-      color: 'deep blue'
-    },
-    {
-      name: 'Jupiter',
-      size: 'huge',
-      color: 'brownish'
-    }
-  ];
+  logo = 'https://angular.io/assets/images/logos/angular/shield-large.svg';
+  title = 'First Angular App';
+  linkClasses = {
+    green: true,
+    background: true
+  };
+  planets = [];
 
-  planet = {
-    name: 'Earth',
-    size: 'small',
-    color: 'blue and green'
+  constructor(private dataService: DataService) {
   }
+
+  loadPlanets() {
+    this.planets = this.dataService.planets;
+  }
+
+
 }
