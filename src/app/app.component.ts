@@ -39,6 +39,11 @@ export class AppComponent {
 
   loadPlanets() {
     this.planets = this.dataService.planets;
+    this.colorLink = 'gray';
+  }
+  destroyPlanets (){
+    this.planets = [];
+    this.colorLink = 'gray';
   }
 
   hoverLink() {

@@ -1,13 +1,20 @@
 <img [src]="logo">
-<h1>Hello inside the {{title}} world!</h1>
-<ul *ngIf="planets.length != 0; then yesPlanets else noPlanets"></ul>
+<h1>Hello inside my {{title}} world!</h1>
+<div *ngIf="planets.length != 0; then yesPlanets else noPlanets"></div>
 <ng-template #yesPlanets>
-  List of planets:
-  <li *ngFor="let planet of planets">{{planet.name}} is a {{planet.size}} planet and it has {{planet.color}}
-    colors.
-  </li>
+  <h2> List of planets:</h2>
+  <ul>
+    <li *ngFor="let planet of planets">{{planet.name}} is a {{planet.size}} planet and it has {{planet.color}}
+      colors.
+    </li>
+  </ul>
+  <a [ngClass]="linkClasses" href="#" (click)="destroyPlanets()" [@animateColor]="colorLink" (mouseover)="hoverLink()" (mouseleave)="nohoverLink()">
+    click here to destroy the
+    planets</a>
 </ng-template>
 <ng-template #noPlanets>
-  <p>Sorry no planets yet, <a [ngClass]="linkClasses" href="#" (click)="loadPlanets()" [@animateColor]="colorLink" (mouseover)="hoverLink()" (mouseleave)="nohoverLink()"> click here to load the
-    planets</a></p>
+  <p>Sorry no planets yet,
+    <a [ngClass]="linkClasses" href="#" (click)="loadPlanets()" [@animateColor]="colorLink" (mouseover)="hoverLink()" (mouseleave)="nohoverLink()">
+      click here to load the
+      planets</a></p>
 </ng-template>
