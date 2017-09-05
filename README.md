@@ -1,8 +1,8 @@
-# My First Angular app
+# Components101
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.3.2.
 
-In this project I tried out some basic Angular functionality to see how it works. Its Great! I used this [tutorial form Coursetro](https://coursetro.com/courses/12/Learn-Angular-4-from-Scratch)
+I used this [tutorial form Coursetro](https://coursetro.com/courses/12/Learn-Angular-4-from-Scratch). In this project I tried out some basic Angular functionality to see how it works. Its Great!
 
 ## Development server
 
