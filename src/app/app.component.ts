@@ -7,15 +7,21 @@ import {trigger, state, style, transition, animate, keyframes} from '@angular/an
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('animateSize', [
-      state('small', style({
-        transform: 'scale(1)'
+    trigger('animateColor', [
+      state('gray', style({
       })),
-      state('large', style({
-        transform: 'scale(1.05)'
+      state('color', style({
       })),
-      transition('small <=> large', animate('300ms ease-in-out'))
+      // transition('gray <=> color', animate(400))
+      transition('gray <=> color', animate(400, keyframes([
+        style({opacity: .5, offset: 0}),
+        style({opacity: .7, offset: 0.2}),
+        style({opacity: .5, offset: 0.5}),
+        style({opacity: .7, offset: 0.7}),
+        style({opacity: 1, offset: 1.0})
+      ]))),
     ])
+
   ]
 })
 export class AppComponent {
@@ -26,7 +32,7 @@ export class AppComponent {
     background: true
   };
   planets = [];
-  state:String = 'small';
+  colorLink: String = 'gray';
 
   constructor(private dataService: DataService) {
   }
@@ -35,11 +41,12 @@ export class AppComponent {
     this.planets = this.dataService.planets;
   }
 
-  ensmall(){
-    this.state = 'small';
+  hoverLink() {
+    this.colorLink = 'color';
   }
-  enlarge(){
-    this.state = 'large';
+
+  nohoverLink() {
+    this.colorLink = 'gray';
   }
 
 
