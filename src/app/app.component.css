@@ -12,5 +12,6 @@
 
 .background {
   background: lightgray;
-  padding: .2rem
+  padding: .2rem;
+  display: inline-block;
 }

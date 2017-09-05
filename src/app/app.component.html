@@ -1,6 +1,7 @@
 <img [src]="logo">
 <h1>Hello inside the {{title}} world!</h1>
 <ul *ngIf="planets.length != 0; then yesPlanets else noPlanets"></ul>
+<p class='animate' [@animateSize]="state" (mouseover)="enlarge()" (mouseleave)="ensmall()" >I will animate</p>
 <ng-template #yesPlanets>
   List of planets:
   <li *ngFor="let planet of planets">{{planet.name}} is a {{planet.size}} planet and it has {{planet.color}}
